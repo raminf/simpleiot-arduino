@@ -364,7 +364,7 @@ void SimpleIOT::_invokeCallback(const char* topic, const char* buffer, const uns
 
     bool force = true;
 
-    JsonVariant forceValue = jdoc.getMember("force");
+    JsonVariant forceValue = jdoc["force"];
     if (!forceValue.isNull()) {
         force = forceValue.as<bool>();
     }
@@ -387,7 +387,7 @@ void SimpleIOT::_invokeCallback(const char* topic, const char* buffer, const uns
     if (this->_dataCallback.callback) {
       const char* name = jdoc["name"];
       const char* value = jdoc["value"];
-      JsonVariant type = jdoc.getMember("type");
+      JsonVariant type = jdoc["type"];
 
       if (!(type.isNull())) {
         const char* typeStr = type.as<const char *>();
